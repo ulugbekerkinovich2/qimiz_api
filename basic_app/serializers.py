@@ -14,7 +14,7 @@ def telebot(mess):
 class DachaKategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = DachaKategory
-        fields = ['id', 'name_uz', 'name_ru']
+        fields = ['id', 'name_uz', 'name_ru', 'name_en']
 
 
 class QimizOlishZonaDachalariSerializer(serializers.ModelSerializer):
@@ -23,7 +23,7 @@ class QimizOlishZonaDachalariSerializer(serializers.ModelSerializer):
     class Meta:
         model = QimizOlishZonaDachalari
         fields = [
-            'id', 'category', 'title_uz', 'title_ru', 'cost', 'text_uz', 'text_ru', 'image'
+            'id', 'category', 'title_uz', 'title_ru', 'title_en', 'cost', 'text_uz', 'text_ru', 'text_en', 'image'
         ]
 
 

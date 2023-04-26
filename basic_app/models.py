@@ -7,6 +7,7 @@ from django.db import models
 class DachaKategory(models.Model):
     name_uz = models.CharField(max_length=512, default='kategoriya kitilmagan')
     name_ru = models.CharField(max_length=512, default='kategoriya kitilmagan')
+    name_en = models.CharField(max_length=512, default='kategoriya kitilmagan')
     objects = models.Manager()
 
     def __str__(self):
@@ -20,11 +21,12 @@ class QimizOlishZonaDachalari(models.Model):
     category = models.ForeignKey(DachaKategory, on_delete=models.CASCADE, related_name='category_uz', null=True)
     title_uz = models.CharField(max_length=128, default='matn kiritilmagan')
     title_ru = models.CharField(max_length=128, default='matn kiritilmagan')
+    title_en = models.CharField(max_length=128, default='matn kiritilmagan')
     cost = models.IntegerField(default=1000000)
     text_uz = models.TextField(default='matn kiritilmagan')
     text_ru = models.TextField(default='текст не введен')
+    text_en = models.TextField(default='text not entered')
     image = models.ImageField(upload_to='images/')
-    objects = models.Manager()
 
     def __str__(self):
         return f'{self.title_uz} - {self.title_ru}'
@@ -35,7 +37,6 @@ class QimizOlishZonaDachalari(models.Model):
 
 class DachaVideo(models.Model):
     video = models.FileField(upload_to='videos/')
-    objects = models.Manager()
 
     def __str__(self):
         return self.video.name
@@ -46,7 +47,6 @@ class DachaVideo(models.Model):
 
 class MijozlarFikrlariAudio(models.Model):
     audio_file = models.FileField(upload_to='audio_files/')
-    objects = models.Manager()
 
     def __str__(self):
         return self.audio_file.name
@@ -57,7 +57,6 @@ class MijozlarFikrlariAudio(models.Model):
 
 class MijozlarFikrlariImage(models.Model):
     image_file = models.ImageField(upload_to='screenshots/')
-    objects = models.Manager()
 
     def __str__(self):
         return self.image_file.name
@@ -69,10 +68,11 @@ class MijozlarFikrlariImage(models.Model):
 class Comments(models.Model):
     title_uz = models.CharField(max_length=128, default='matn kiritilmagan')
     title_ru = models.CharField(max_length=128, default='matn kiritilmagan')
+    title_en = models.CharField(max_length=128, default='matn kiritilmagan')
     text_uz = models.TextField(default='matn kiritilmagan')
     text_ru = models.TextField(default='matn kiritilmagan')
+    text_en = models.TextField(default='matn kiritilmagan')
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-    objects = models.Manager()
 
     def __str__(self):
         return f'{self.title_uz} - {self.title_ru}'
@@ -84,7 +84,6 @@ class Comments(models.Model):
 class Form(models.Model):
     name = models.CharField(max_length=128, default='matn kiritilmagan')
     phone = models.CharField(max_length=128, default='matn kiritilmagan')
-    objects = models.Manager()
 
     def __str__(self):
         return f'{self.name} - {self.phone}'
@@ -96,9 +95,11 @@ class Form(models.Model):
 class About(models.Model):
     title_uz = models.CharField(max_length=512, default='matn kiritilmagan')
     title_ru = models.CharField(max_length=512, default='matn kiritilmagan')
+    title_en = models.CharField(max_length=512, default='matn kiritilmagan')
     text_uz = models.TextField(default='matn kiritilmagan')
     text_ru = models.TextField(default='matn kiritilmagan')
+    text_en = models.TextField(default='matn kiritilmagan')
     objects = models.Manager()
 
     def __str__(self):
-        return self.title
+        return self.title_uz
