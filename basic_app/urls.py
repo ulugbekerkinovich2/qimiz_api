@@ -22,7 +22,8 @@ urlpatterns = [
     path('form/<int:pk>', views.DetailForm.as_view()),
     path('about/', views.ListAbout.as_view()),
     path('about/<int:pk>', views.DetailAbout.as_view()),
-
+    path('qimiz_dacha/', views.ListQimizDacha.as_view()),
+    path('qimiz_dacha/<int:pk>', views.DetailQimizDacha.as_view()),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

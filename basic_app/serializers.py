@@ -2,7 +2,7 @@ import requests
 from rest_framework import serializers
 
 from basic_app.models import QimizOlishZonaDachalari, DachaKategory, DachaVideo, MijozlarFikrlariAudio, \
-    MijozlarFikrlariImage, Comments, Form, About
+    MijozlarFikrlariImage, Comments, Form, About, Qimiz_Dacha
 from qimiz.settings import BOT_TOKEN, GROUP_CHAT_ID
 
 
@@ -71,4 +71,10 @@ class FormSerializer(serializers.ModelSerializer):
 class AboutSerializer(serializers.ModelSerializer):
     class Meta:
         model = About
+        fields = '__all__'
+
+
+class Qimiz_DachaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Qimiz_Dacha
         fields = '__all__'

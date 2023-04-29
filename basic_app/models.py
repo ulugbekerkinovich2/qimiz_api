@@ -103,3 +103,15 @@ class About(models.Model):
 
     def __str__(self):
         return self.title_uz
+
+
+class Qimiz_Dacha(models.Model):
+    type = models.CharField(max_length=255, null=True, blank=True)
+    cost_title = models.CharField(max_length=255, null=True, blank=True)
+    rating = models.IntegerField(default=0, null=True, blank=True)
+
+    def __str__(self):
+        return self.cost_title
+
+    class Meta:
+        verbose_name_plural = 'Qimiz_Dacha'

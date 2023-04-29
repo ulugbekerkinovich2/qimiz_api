@@ -84,3 +84,13 @@ class ListAbout(generics.ListCreateAPIView):
 class DetailAbout(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.About.objects.all()
     serializer_class = serializers.AboutSerializer
+
+
+class ListQimizDacha(generics.ListCreateAPIView):
+    queryset = models.Qimiz_Dacha.objects.all()
+    serializer_class = serializers.Qimiz_DachaSerializer
+
+
+class DetailQimizDacha(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Qimiz_Dacha.objects.all()
+    serializer_class = serializers.Qimiz_DachaSerializer
